@@ -51,3 +51,39 @@
         opacity: 0;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .scoreBoard {
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+            position: static;
+                top: 0;
+                right: 0;
+                gap: 20px;
+    }
+
+    .title {
+        width: 100%;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .resetButton {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 0;
+
+    }
+
+    .resetMessage {
+        font-size: 0.8rem;
+    }
+
+    h2{
+        display: none;
+    }
+
+}

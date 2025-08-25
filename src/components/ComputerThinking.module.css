@@ -23,3 +23,20 @@
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width: 600px) {
+    .thinking {
+        font-size: 0.8rem;
+    }
+
+    .spinner {
+        width: 30px;
+        height: 30px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

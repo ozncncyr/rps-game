@@ -26,3 +26,29 @@
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .resultBanner {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }    
+
+    .resultBanner.win,
+    .resultBanner.lose {
+        font-size: 1.2rem;
+    }
+
+    .resultBanner.draw {
+        font-size: 1.2rem;
+    }
+
+    .resultBanner {
+        animation: none;
+    }
+
+    .resultBanner.win,
+    .resultBanner.lose,
+    .resultBanner.draw {
+        animation: none;
+    }
+}
