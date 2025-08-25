@@ -1,0 +1,28 @@
+.resultBanner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.resultBanner.win {
+    color: #27ae60;
+}
+
+.resultBanner.lose {
+    color: #c0392b;
+}
+
+.resultBanner.draw {
+    color: #7f8c8d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
