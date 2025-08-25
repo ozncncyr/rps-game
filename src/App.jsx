@@ -25,7 +25,7 @@ function App() {
   const handlePlayerChoice = choice => {
     setButtonsDisabled(true);
     setPlayerChoice(choice);
-    setIsComputerThinking(true); // Başladı
+    setIsComputerThinking(true);
 
     setTimeout(() => {
       const randomId = Math.floor(Math.random() * 3) + 1;
@@ -45,7 +45,7 @@ function App() {
         saveScoresToStorage(playerScore, newScore);
       }
 
-      setIsComputerThinking(false); // Bitti
+      setIsComputerThinking(false);
     }, 1750);
 
     setTimeout(() => {
@@ -100,6 +100,13 @@ function App() {
     }
   };
 
+  const getResultClass = () => {
+    if (result === 'Player Wins') return 'win';
+    if (result === 'Computer Wins') return 'lose';
+    if (result === 'Draw') return 'draw';
+    return '';
+  };
+
   return (
     <div className={styles.app}>
       <ScoreBoard
@@ -109,7 +116,10 @@ function App() {
         resetMessage={resetMessage}
       />
 
-      <ResultBanner result={isComputerThinking ? '...' : result} />
+      <ResultBanner
+        result={isComputerThinking ? '...' : result}
+        resultClass={getResultClass()}
+      />
       <GameScreen player={playerChoice} computer={computerChoice} />
       <ChoiceButtons
         data={data}
