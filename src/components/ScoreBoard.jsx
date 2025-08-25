@@ -8,7 +8,7 @@ const ScoreBoard = ({
 }) => {
   return (
     <div className={styles.scoreBoard}>
-      <h2>Score Board</h2>
+      <h2 className={styles.title}>Score Board</h2>
       <p>🧑 Player: {playerScore}</p>
       <p>🤖 Computer: {computerScore}</p>
 

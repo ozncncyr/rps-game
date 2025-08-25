@@ -15,7 +15,7 @@
     border-top: 4px solid #2c3e50;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
 
 @keyframes spin {
@@ -27,6 +27,7 @@
 @media screen and (max-width: 600px) {
     .thinking {
         font-size: 0.8rem;
+        margin: 0;
     }
 
     .spinner {

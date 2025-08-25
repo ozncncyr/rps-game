@@ -63,6 +63,8 @@
                 top: 0;
                 right: 0;
                 gap: 20px;
+                padding: 0.1rem 0.5rem;
+                /* display: none; */
     }
 
     .title {
@@ -75,6 +77,7 @@
         padding: 0.5rem 0.5rem;
         font-size: 0.8rem;
         margin-top: 0;
+        margin-bottom: 0
 
     }
 
@@ -82,7 +85,7 @@
         font-size: 0.8rem;
     }
 
-    h2{
+    .title{
         display: none;
     }
 
