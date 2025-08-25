@@ -6,6 +6,8 @@ import ResultBanner from './components/ResultBanner';
 import ChoiceButtons from './components/ChoiceButtons';
 import ComputerThinking from './components/ComputerThinking';
 import { getScoresFromStorage, saveScoresToStorage } from './utils/storage';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 import styles from './App.module.css';
 
@@ -18,6 +20,7 @@ function App() {
   const [computerScore, setComputerScore] = useState(initialScores.computer);
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [isComputerThinking, setIsComputerThinking] = useState(false);
+  const [resetMessage, setResetMessage] = useState('');
 
   const handlePlayerChoice = choice => {
     setButtonsDisabled(true);
@@ -43,11 +46,11 @@ function App() {
       }
 
       setIsComputerThinking(false); // Bitti
-    }, 3000);
+    }, 1750);
 
     setTimeout(() => {
       setButtonsDisabled(false);
-    }, 5000);
+    }, 2000);
   };
 
   const getResult = (player, computer) => {
@@ -61,11 +64,52 @@ function App() {
     return 'Computer Wins';
   };
 
+  const resetScores = () => {
+    try {
+      if (playerScore === 0 && computerScore === 0) {
+        iziToast.warning({
+          title: 'Warning: ',
+          message: 'Scores are already reset.',
+          position: 'bottomRight',
+          timeout: 2500,
+          transitionIn: 'fadeInUp',
+          transitionOut: 'fadeOut',
+        });
+        return;
+      }
+      setPlayerScore(0);
+      setComputerScore(0);
+      saveScoresToStorage(0, 0); // localStorage işlemi
+      setResult('');
+      setPlayerChoice(null);
+      setComputerChoice(null);
+
+      iziToast.success({
+        title: 'Success: ',
+        message: 'Scores have been reset.',
+        position: 'bottomRight',
+        timeout: 2000,
+      });
+    } catch (error) {
+      iziToast.error({
+        title: 'Error: ',
+        message: 'Scores could not be reset.',
+        position: 'bottomRight',
+        timeout: 3000,
+      });
+    }
+  };
+
   return (
     <div className={styles.app}>
-      <ScoreBoard playerScore={playerScore} computerScore={computerScore} />
+      <ScoreBoard
+        playerScore={playerScore}
+        computerScore={computerScore}
+        resetScores={resetScores}
+        resetMessage={resetMessage}
+      />
 
-      <ResultBanner result={result} />
+      <ResultBanner result={isComputerThinking ? '...' : result} />
       <GameScreen player={playerChoice} computer={computerChoice} />
       <ChoiceButtons
         data={data}
