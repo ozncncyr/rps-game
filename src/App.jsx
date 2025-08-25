@@ -79,7 +79,7 @@ function App() {
       }
       setPlayerScore(0);
       setComputerScore(0);
-      saveScoresToStorage(0, 0); // localStorage işlemi
+      saveScoresToStorage(0, 0);
       setResult('');
       setPlayerChoice(null);
       setComputerChoice(null);
